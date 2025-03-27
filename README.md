@@ -1,6 +1,6 @@
 # BrainScreen
 # 🎮 Giroscopio per Rotazione Automatica dello Schermo con ESP32 e MPU6050  
-![Immagine WhatsApp 2025-03-27 ore 13 20 49_0aa3feb5](https://github.com/user-attachments/assets/b3913331-2456-45cd-a2f6-21d497c1056a)
+
 
 Questo progetto utilizza un **ESP32** con un sensore **MPU6050** per rilevare l'inclinazione e ruotare automaticamente un display secondario su un PC tramite **Python**.  
 
@@ -23,6 +23,10 @@ Questo progetto utilizza un **ESP32** con un sensore **MPU6050** per rilevare l'
 ---
 
 ## 🔌 **Collegamenti Hardware**
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/b3913331-2456-45cd-a2f6-21d497c1056a" width="45%">
+  <img src="https://github.com/user-attachments/assets/ff63bc57-4a64-4fe7-b55d-6787d77b4cf5" width="45%">
+</p>
 | **MPU6050** | **ESP32** |
 |------------|----------|
 | VCC        | 3.3V     |
