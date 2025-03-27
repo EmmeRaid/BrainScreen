@@ -22,10 +22,10 @@ Questo progetto utilizza un **ESP32** con un sensore **MPU6050** per rilevare l'
 
 ---
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/b3913331-2456-45cd-a2f6-21d497c1056a" width="45%">
-  <img src="https://github.com/user-attachments/assets/ff63bc57-4a64-4fe7-b55d-6787d77b4cf5" width="45%">
-</p>
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/b3913331-2456-45cd-a2f6-21d497c1056a" width="300">
+  <img src="https://github.com/user-attachments/assets/ff63bc57-4a64-4fe7-b55d-6787d77b4cf5" width="300">
+</div>
 
 ## 🔌 **Collegamenti Hardware**
 | **MPU6050** | **ESP32** |
