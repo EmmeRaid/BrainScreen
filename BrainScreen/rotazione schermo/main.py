@@ -32,13 +32,13 @@ if len(screens) > 0:
 
                 # Determina l'orientamento in base all'angolo
                 if 0 <= angle_x < 80:
-                    new_orientation = 270  # Orizzontale
+                    new_orientation = 0  # Orizzontale
                 elif 80 <= angle_x < 190:
                     new_orientation = 90  # Verticale
                 elif 190 <= angle_x < 280:
-                    new_orientation = 90  # Orizzontale opposto
+                    new_orientation = 180  # Orizzontale opposto
                 elif 280 <= angle_x < 360:
-                    new_orientation = 0  # Verticale opposto
+                    new_orientation = 0 # Verticale opposto
                 else:
                     new_orientation = last_orientation  # Mantieni l'orientamento precedente se l'angolo è fuori intervallo
 
