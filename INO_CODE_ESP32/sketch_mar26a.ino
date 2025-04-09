@@ -1,21 +1,21 @@
 #include <Wire.h>
 #include <MPU6050.h>
+#include <math.h>
 
 MPU6050 mpu;
 
-// Configurazione I2C su ESP32 (puoi cambiare SDA e SCL se necessario)
-#define SDA_PIN 23  // Pin SDA su ESP32
-#define SCL_PIN 22  // Pin SCL su ESP32
+#define SDA_PIN 22
+#define SCL_PIN 23
 
-unsigned long previousMillis = 0;  // Tempo dell'ultima lettura
-const long interval = 5000;         // Intervallo di 5 secondi (5000 ms)
+unsigned long previousMillis = 0;
+const long interval = 5000;
 
 void setup() {
-  Serial.begin(9600);              // Inizializza la comunicazione seriale
-  Wire.begin(SDA_PIN, SCL_PIN);    // Inizializza la comunicazione I2C con i pin definiti
+  Serial.begin(9600);
+  Wire.begin(SDA_PIN, SCL_PIN);
 
   mpu.initialize();
-  
+
   if (mpu.testConnection()) {
     Serial.println("MPU6050 connected successfully.");
   } else {
@@ -25,19 +25,22 @@ void setup() {
 
 void loop() {
   unsigned long currentMillis = millis();
-  
-  // Verifica se sono passati 5 secondi
+
   if (currentMillis - previousMillis >= interval) {
-    // Salva il tempo dell'ultima lettura
     previousMillis = currentMillis;
 
     int16_t ax, ay, az;
     mpu.getAcceleration(&ax, &ay, &az);
-    
-    // Invia solo l'angolo x per la rotazione del display
-    int angle_x = map(ax, -17000, 17000, 0, 360);  // Scala l'asse X per ottenere un angolo (0-360 gradi)
-    
-    // Invia l'angolo X al PC
-    Serial.println(angle_x);
+
+    // Calcolo dell'angolo nel piano X-Y
+    float angle_rad = atan2((float)ay, (float)ax);
+    float angle_deg = angle_rad * 180.0 / PI;
+
+    // Normalizza l'angolo in range 0-360
+    if (angle_deg < 0) {
+      angle_deg += 360;
+    }
+
+    Serial.println((int)angle_deg);  // Cast per avere un valore intero
   }
 }
